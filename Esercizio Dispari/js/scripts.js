@@ -107,5 +107,6 @@ submit.addEventListener ('click',
             alert("L'utente perde!");
         } 
     }
+    
 )
 

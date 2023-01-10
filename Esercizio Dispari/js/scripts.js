@@ -24,36 +24,6 @@ Dichiariamo chi ha vinto.
 
 console.log('Tutto ok');
 
-// // Prendi la scelta dell'utente dal DOM
-// const inputRadioP = document.getElementById('pari');
-// console.log(inputRadioP);
-
-// const inputRadioD = document.getElementById('dispari');
-// console.log(inputRadioD);
-
-// const submitUno = document.getElementById('bottone-1');
-// console.log(submitUno);
-
-// let sceltaUtente;
-
-// let flag = true;
-
-// submitUno.addEventListener ('click',
-
-// function () {
-
-//     if (inputRadioP) {
-//         console.log(inputRadioP);
-//     }
-//     else {
-//         console.log(inputRadioD);
-//     }
-   
-// }
-
-// )
-
-
 
 // Genera un numero random attraverso una funzione
 function generaNumeroRandom (num1) {
@@ -69,19 +39,19 @@ console.log('Il numero random del pc è: ', numeroRandomPc, typeof numeroRandomP
 
 
 // Crea funzione di verifica se numero è pari o dispari
-let pari = true;
 
-function verificaPariDispari (numUno) {
+function verificaPari (numUno) {
 
     if ((numUno % 2) == 0) {
-        numUno = pari;
-        console.log(numUno);
         console.log('Il numero è pari');
+
+        return true;
     }
     else {
-        numUno != pari;
-        console.log(numUno);
+
         console.log('Il numero è dispari');
+
+        return false;
     }
 }
 
@@ -121,14 +91,21 @@ submit.addEventListener ('click',
         console.log('La somma del numero utente e del numero random è: ', somma);
 
         // Verifica se la somma è pari o dispari
-        verificaSomma = verificaPariDispari(somma);
+        verificaSomma = verificaPari(somma);
 
         // Compara la scelta dell'utente con la somma uscita
         // Se scelta è pari e valore somma è pari allora utente vince
-        if ((sceltaUtente = 'Pari') && (somma == pari)) {
+        if (sceltaUtente == 'Pari' && verificaPari(somma)) {
+            console.log("L'utente vince!");
+            alert("L'utente vince!");
+        }
+        else if (sceltaUtente == 'Dispari' && (verificaPari(somma)== false)) {
             console.log("L'utente vince!");
         }
-       
+        else {
+            console.log("L'utente perde!");
+            alert("L'utente perde!");
+        } 
     }
 )
 

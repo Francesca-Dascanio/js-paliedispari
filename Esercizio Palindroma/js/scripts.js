@@ -31,6 +31,8 @@ function parolaPalindroma (par1, par2) {
 
     }
 
+    console.log(par2);
+
     if (par1 == par2) {
 
         verifica = true;

@@ -53,6 +53,8 @@ console.log('Tutto ok');
 
 // )
 
+
+
 // Genera un numero random attraverso una funzione
 function generaNumeroRandom (num1) {
 
@@ -67,31 +69,50 @@ console.log('Il numero random del pc è: ', numeroRandomPc, typeof numeroRandomP
 
 
 // Crea funzione di verifica se numero è pari o dispari
+let pari = true;
+
 function verificaPariDispari (numUno) {
 
     if ((numUno % 2) == 0) {
+        numUno = pari;
+        console.log(numUno);
         console.log('Il numero è pari');
     }
     else {
+        numUno != pari;
+        console.log(numUno);
         console.log('Il numero è dispari');
     }
 }
 
 
 
-// Prendi il numero selezionato dall'utente dal DOM
-const inputTextDue = document.getElementById('numero');
+// Prendi button
+const submit = document.getElementById('bottone');
 
-const submitDue = document.getElementById('bottone-2');
+// Prendi input scelta
+const inputTextUno = document.getElementById('scelta');
+
+let sceltaUtente;
+
+// Prendi input numero
+const inputTextDue = document.getElementById('numero');
 
 let numeroUtente;
 
 let verificaSomma;
 
-submitDue.addEventListener ('click',
+
+// Al click del button cosa succede:
+submit.addEventListener ('click',
 
     function () {
 
+        // Prendi scelta tra pari o dispari dell'utente
+        sceltaUtente = inputTextUno.value;
+        console.log('La scelta è: ', sceltaUtente);
+
+        // Prendi numero scritto dall'utente
         numeroUtente = parseInt(inputTextDue.value);
         console.log('Il numero inserito da utente è: ', numeroUtente, typeof numeroUtente);
 
@@ -99,27 +120,15 @@ submitDue.addEventListener ('click',
         somma = numeroUtente + numeroRandomPc;
         console.log('La somma del numero utente e del numero random è: ', somma);
 
+        // Verifica se la somma è pari o dispari
         verificaSomma = verificaPariDispari(somma);
+
+        // Compara la scelta dell'utente con la somma uscita
+        // Se scelta è pari e valore somma è pari allora utente vince
+        if ((sceltaUtente = 'Pari') && (somma == pari)) {
+            console.log("L'utente vince!");
+        }
        
     }
 )
 
-
-// Prendi la scelta tra pari o dispari
-const inputTextUno = document.getElementById('scelta');
-
-const submitUno = document.getElementById('bottone-1');
-
-let sceltaUtente;
-
-submitUno.addEventListener ('click',
-
-    function () {
-
-        sceltaUtente = inputTextUno.value;
-        console.log('La scelta è: ', sceltaUtente);
-
-    
-       
-    }
-)
